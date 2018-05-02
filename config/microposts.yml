@@ -1,0 +1,32 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  # For details on connection pooling, see Rails configuration guide
+  # http://guides.rubyonrails.org/configuring.html#database-pooling
+#  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  pool: 5
+development:
+  <<: *default
+  host: localhost
+  database: static_pages_development
+  #username: static_pages
+
+  timeout: 5000
+  username: static_pages
+  password: 'static_1_pages'
+  #port: 5432
+
+  #schema_search_path: myapp,sharedapp,public
+  #min_messages: notice
+
+test:
+  <<: *default
+  host: localhost
+  database: static_pages_test
+
+
+production:
+  <<: *default
+  database: static_pages_production
+  username: static_pages
+  password: <%= ENV['STATIC_PAGES_DATABASE_PASSWORD'] %>
