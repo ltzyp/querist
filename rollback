@@ -1,0 +1,1 @@
+ActiveRecord::Base.connection.rollback_db_transaction
